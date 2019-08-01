@@ -1,0 +1,17 @@
+version: "3"
+services:
+  mysql:
+    image: mysql:5.6.44
+    ports:
+      - "3306:3306"
+    volumes:
+      - C:\mysql:/var/www/
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "caixa"  
+  caixa:
+    image: lucasbpaixao/caixa:v1
+    ports:
+      - "8080:8080"
+    depends_on: 
+      - mysql

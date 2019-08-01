@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" charset="UTF-8" />
+<title>Cadastro de Produtos</title>
+<link rel="stylesheet" href="bootstrap/compiler/bootstrap.css" />
+<link rel="stylesheet" href="bootstrap/compiler/style.css" />
+</head>
+<body class="bg-secondary">
+	<script src="js/polyfill/es6.js"></script>
+	<div class="container">
+		<img alt="Majority Caixa" src="images/majority-claro.png" align="top" />
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="menu"><h4>Majority Caixa</h4></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a class="nav-link"
+						href="registrarEntrada">Entrada no Estoque <span
+							class="sr-only">(current)</span></a></li>
+					<li class="nav-item active"><a class="nav-link" href="venda">Vendas
+							<span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item active"><a class="nav-link" href="estoque">Estoque
+							<span class="sr-only">(current)</span>
+					</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="jumbotron" align="center">
+
+			<h1>Cadastro de Produtos</h1>
+
+			<div id="alertas"></div>
+
+
+			<form method="post">
+
+				<div class="form-group" align="left">
+					<label for="id">Id</label> <input type="text" class="form-control"
+						id="id" name="id" aria-describedby="id" placeholder="Id" disabled="true"> <small id="emailHelp"
+						class="form-text text-muted">O Id só deve ser preenchido
+						você querer alterar algum produto, caso você queira cadastrar é de
+						suma importancia que você não o preencha.</small> </input>
+				</div>
+
+
+				<div class="form-group" align="left">
+					<label for="nomeProduto">Nome do Produto</label> <input type="text"
+						class="form-control" id="nomeProduto" name="nomeProduto"
+						aria-describedby="nomeProduto" placeholder="Nome do Produto"
+						required="true" autofocus="true"> </input>
+				</div>
+
+				<div class="form-group" align="left">
+					<label for="login">Marca</label> <input type="text"
+						class="form-control" id="marca" name="marca"
+						aria-describedby="marca" placeholder="Marca"></input>
+				</div>
+
+				<div class="form-group" align="left">
+					<label for="categoria">Categoria</label> <input type="text"
+						class="form-control" id="categoria" name="categoria"
+						aria-describedby="categoria" placeholder="Categoria"> </input>
+				</div>
+
+				<div class="form-group" align="left">
+					<label for="preco">Preço</label> <input type="text"
+						class="form-control" id="preco" name="preco"
+						aria-describedby="preco" placeholder="Preco"> </input>
+				</div>
+
+				<br /> <br />
+
+				<button type="button" onclick="distProduto.cadastrar()" class="btn btn-primary btn-lg">Cadastrar</button>
+				
+				<button type="button" onclick="distProduto.alterar()" class="btn btn-secondary btn-lg">Alterar</button>
+
+
+			</form>
+
+			<br /> <br />
+			<h1>Produtos já Cadastrados</h1>
+			<br /> <br />
+
+			<div id="tabela"></div>
+
+		</div>
+
+	</div>
+	
+	<script src="js/dist/DistProduto.js" type="text/javascript"></script>
+	<script src="js/view/ProdutoView.js" type="text/javascript"></script>
+	<script src="js/models/Produto.js" type="text/javascript"></script>
+	<script src="js/models/ListaProdutos.js" type="text/javascript"></script>
+	<script src="js/view/MensagemView.js" type="text/javascript"></script>
+	<script src="js/services/HttpService.js" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+		var distProduto = new DistProduto();
+	</script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" charset="UTF-8" />
+<title>Vendas</title>
+<link rel="stylesheet" href="bootstrap/compiler/bootstrap.css" />
+<link rel="stylesheet" href="bootstrap/compiler/style.css" />
+</head>
+<body class="bg-secondary">
+	<div class="container">
+		<img alt="Majority Caixa" src="images/majority-claro.png" align="top" />
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="menu"><h4>Majority Caixa</h4></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a class="nav-link" href="cadastroProdutos">Cadastro de Produtos<span class="sr-only">(current)</span></a></li>
+					<li class="nav-item active"><a class="nav-link" href="registrarEntrada">Entrada no Estoque<span class="sr-only">(current)</span></a></li>
+					<li class="nav-item active"><a class="nav-link" href="estoque">Estoque <span class="sr-only">(current)</span></a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="jumbotron" align="center">
+
+			<h1>Vendas</h1>
+
+			<div id="alertas"></div>
+
+			<form method="post">
+
+				<div id="comboBoxProduto" class="form-group" align="left">
+				<label for="produto">Selecione o Produto</label> 
+					<select class="form-control" id="produto">
+					</select>
+				</div>
+
+				<div class="form-group" align="left">
+					<label for="quantidade">Quantidade Vendida</label> <input type="number"
+						class="form-control" id="quantidade" name="quantidade"
+						aria-describedby="quantidade" placeholder="Quantidade"> </input>
+				</div>
+
+				<br /> <br />
+
+				<button type="button" onclick="distVenda.cadastrar()" class="btn btn-primary btn-lg" name="cadastrarEntrada" value="cadastrarEntrada">Cadastrar</button>
+				<small id="emailHelp" 
+ 						class="form-text text-muted">O Valor será gerado altomaticamente a partir dos dados informados no cadastro do produto.</small>
+			</form>
+
+			<br /> <br />
+			<h1>Vendas Cadastradas</h1>
+			<br /> <br />
+
+			<nav class="navbar navbar-light bg-light">
+				<form class="form-inline" action="atualizarTabelaVenda">
+						<button type="submit" class="btn btn-primary">Atualizar Tabela</button>
+				</form>
+			</nav>
+
+			<br /> <br />
+
+			<div id="tabela"></div>
+
+		</div>
+
+	</div>
+
+	<script src="js/dist/DistVenda.js" type="text/javascript"></script>
+	<script src="js/view/VendaView.js" type="text/javascript"></script>
+	<script src="js/view/MensagemView.js" type="text/javascript"></script>
+	<script src="js/services/HttpService.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var distVenda = new DistVenda();
+		
+	</script>
+
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
